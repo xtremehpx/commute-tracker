@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import type { CommuteEntry, CommuteRating } from '../models';
+import type { CommuteEntry } from '../models';
 import { STATIONS } from "../config/stations";
 
 
@@ -22,9 +22,7 @@ const CommuteRow: React.FC<Props> = ({ title, entry, onChange }) => {
     onChange(updated);
   };
 
-  const setRating = (rating: CommuteRating) => {
-    update({ rating });
-  };
+
 
   return (
     <div className="commute-row">
