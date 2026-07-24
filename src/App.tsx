@@ -19,6 +19,7 @@ const App: React.FC = () => {
 
   const handleSaveEntry = async (entry: CommuteEntry) => {
     await saveEntry(entry);
+
     setEntries(prev => {
       const others = prev.filter(e => e.id !== entry.id);
       return [...others, entry];
@@ -49,13 +50,31 @@ const App: React.FC = () => {
 
       {showSheet && (
         <DayDetailSheet
+          key={selectedDate.toISOString()}
           date={selectedDate}
           entries={entries.filter(e => e.date === getISODate(selectedDate))}
           onSave={handleSaveEntry}
           onClose={() => setShowSheet(false)}
         />
       )}
+
+<div className="bottom-menu">
+  <div className="bottom-menu-item active">
+    <span>📅</span>
+    <span>Calendar</span>
+  </div>
+  <div className="bottom-menu-item">
+    <span>📊</span>
+    <span>Stats</span>
+  </div>
+  <div className="bottom-menu-item">
+    <span>⚙️</span>
+    <span>Settings</span>
+  </div>
+</div>
+
     </div>
+
   );
 };
 

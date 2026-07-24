@@ -44,12 +44,8 @@ const CalendarView: React.FC<Props> = ({
 
           return (
             <button
-              key={date.toISOString()}
-              className="calendar-cell"
-              style={{
-                backgroundColor: bg,
-                color: isSelected ? '#fff' : '#000',
-              }}
+              className={`calendar-cell ${isSelected ? 'selected' : ''}`}
+              style={{ backgroundColor: bg }}
               onClick={() => onSelectDate(date)}
             >
               {date.getDate()}

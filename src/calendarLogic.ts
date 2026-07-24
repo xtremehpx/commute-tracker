@@ -21,5 +21,9 @@ export function dayRating(date: Date, entries: CommuteEntry[]): CommuteRating | 
   const iso = getISODate(date);
   const dayEntries = entries.filter(e => e.date === iso);
   if (dayEntries.length === 0) return null;
-  return dayEntries.some(e => e.rating === 'bad') ? 'bad' : 'good';
+
+  if (dayEntries.some(e => e.rating === 'bad')) return 'bad';
+  if (dayEntries.some(e => e.rating === 'good')) return 'good';
+
+  return null;    
 }

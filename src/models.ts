@@ -1,5 +1,5 @@
 export type CommutePeriod = 'morning' | 'afternoon';
-export type CommuteRating = 'good' | 'bad';
+export type CommuteRating = 'good' | 'bad' | null;
 
 export interface CommuteEntry {
   id: string;
