@@ -1,0 +1,7 @@
+a few issues with current implementation:
+1. calendar should align the dates, consistently with date like: Su M TU W TH F Sa, this should also shown on top 
+2. Calenda display area should show multiple month if vertical space allows
+3. calendar tab should allows to preview month snapshots of current year 
+4. add back and forth arrow to navigate months
+5. evaluate data option, how access from a different device can have consistent data 
+6. add option to import export data so when switch to a different device a different

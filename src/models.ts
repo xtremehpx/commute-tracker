@@ -7,6 +7,7 @@ export interface CommuteEntry {
   period: CommutePeriod;
   rating: CommuteRating;
   station: string;
+  problemStation?: string;
   time: string;      // HH:mm
   note?: string;
 }

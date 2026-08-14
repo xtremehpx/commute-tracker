@@ -22,8 +22,6 @@ const CommuteRow: React.FC<Props> = ({ title, entry, onChange }) => {
     onChange(updated);
   };
 
-
-
   return (
     <div className="commute-row">
       <div className="row-title">{title}</div>
@@ -32,14 +30,14 @@ const CommuteRow: React.FC<Props> = ({ title, entry, onChange }) => {
         <div className="rating-group">
           <button
             className={`rating-btn ${local.rating === 'good' ? 'active-good' : ''}`}
-            onClick={() => update({ rating: 'good' })}
+            onClick={() => update({ rating: 'good', problemStation: undefined })}
           >
             ✔
           </button>
 
           <button
             className={`rating-btn ${local.rating === 'bad' ? 'active-bad' : ''}`}
-            onClick={() => update({ rating: 'bad' })}
+            onClick={() => update({ rating: 'bad', problemStation: local.problemStation ?? local.station })}
           >
             ✖
           </button>
@@ -57,7 +55,7 @@ const CommuteRow: React.FC<Props> = ({ title, entry, onChange }) => {
 
 
         <div className="row-field station-field">
-          <label>Station</label>
+          <label>Starting Station</label>
           <select
             value={local.station}
             onChange={e => update({ station: e.target.value })}
@@ -68,6 +66,18 @@ const CommuteRow: React.FC<Props> = ({ title, entry, onChange }) => {
           </select>
         </div>
 
+        <div className="row-field station-field problem-station-field">
+          <label>Problem Station</label>
+          <select
+            value={local.problemStation ?? ''}
+            onChange={e => update({ problemStation: e.target.value || undefined })}
+          >
+            <option value="">No issue</option>
+            {STATIONS.map((s: string) => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
+        </div>
 
       </div>
 

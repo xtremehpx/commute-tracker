@@ -73,3 +73,72 @@ export default defineConfig([
 ])
 
 ```
+
+## How to test it locally
+
+From a terminal in the project folder:
+
+```bash
+cd C:\projects\commute-tracker
+npm install
+npm run dev -- --host 0.0.0.0
+```
+
+Then open:
+
+```text
+http://localhost:5173
+```
+
+If you want a production check:
+
+```bash
+npm run build
+npm run preview -- --host 0.0.0.0
+```
+
+Then open:
+
+```text
+http://localhost:4173
+```
+
+---
+
+## If you are using VS Code
+
+Use one of these:
+- terminal + browser
+- Live Server extension
+- VS Code simple browser
+- a Vite preview process
+
+But do not open `index.html` directly from disk if it is a React/Vite app.
+
+---
+
+## Verified status
+
+I verified the app is working with the real build/test commands:
+
+- `npm test` passed
+- `npm run build` passed
+
+So the project itself is valid; the usual problem is the app is being opened without a server.
+
+
+### Run it yourself
+In the terminal:
+
+```bash
+cd C:\projects\commute-tracker
+npm install
+npm run dev -- --host 0.0.0.0
+```
+
+Then open:
+
+```text
+http://localhost:5173/commute-tracker/
+```
+
